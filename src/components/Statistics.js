@@ -9,7 +9,9 @@ export class Statistics extends Component {
         };
         fetch(`https://api.boba.watch/drinks/user${props.location.pathname}`)
         .then(resp => {
-            return resp.json();
+            if(resp.status === 200){
+                return resp.json();
+            }
         }).then(resp => {
             this.parse(resp);
         }).catch(err => {
@@ -31,4 +33,4 @@ export class Statistics extends Component {
     }
 }
 
-export default Statistics
+export default Statistics;
