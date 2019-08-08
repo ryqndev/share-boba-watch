@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
+import backend from './firebaseCalls';
 import { Typography } from '@material-ui/core';
 
 export class Statistics extends Component {
     constructor(props){
         super(props);
+        let uid = this.props.match.params.user;
+        sessionStorage.setItem('uid', uid);
+        this.getUserData( uid );
         this.state = {
-            display: <Typography>This user does not exist</Typography>
+            display: this.setUserData()
         };
-        fetch(`https://api.boba.watch/drinks/user${props.location.pathname}`)
-        .then(resp => {
-            if(resp.status === 200){
-                return resp.json();
-            }
-        }).then(resp => {
-            this.parse(resp);
-        }).catch(err => {
-            alert(err);
-        });
     }
-    parse = (data) => {
-        let display = JSON.stringify(data);
-        this.setState({
-            display: display
-        });
+    getUserData = ( uid ) => {
+        backend.init( uid );
+        backend.getStats(() => {return;});
+    }
+    setUserData = () => {
+        return <Typography> User doesn't exist </Typography>
     }
     render() {
         return (

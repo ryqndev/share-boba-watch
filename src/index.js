@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { HashRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import * as firebase from 'firebase/app';
 
@@ -17,5 +18,8 @@ let firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <Router basename={process.env.PUBLIC_URL} >
+        <App />
+    </Router>, document.getElementById('root'));
 serviceWorker.unregister();
