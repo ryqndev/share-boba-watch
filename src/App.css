@@ -1,4 +1,4 @@
 body {
-    height: 3000px;
-    background: linear-gradient(55deg, #FC8A8A, #FFAFA4, #FFD3B3);
+    background: linear-gradient(80deg, rgb(248, 151, 151), #FFAFA4, rgb(252, 203, 168));
+    min-height: 100vh;
 }

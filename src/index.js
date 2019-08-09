@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { HashRouter as Router } from 'react-router-dom';
+import theme from './theme';
+import { MuiThemeProvider } from '@material-ui/core';
 import * as serviceWorker from './serviceWorker';
 import * as firebase from 'firebase/app';
 
@@ -19,7 +21,9 @@ firebase.initializeApp(firebaseConfig);
 
 
 ReactDOM.render(
-    <Router basename={process.env.PUBLIC_URL} >
-        <App />
-    </Router>, document.getElementById('root'));
+    <MuiThemeProvider theme={theme}>
+        <Router basename={process.env.PUBLIC_URL} >
+            <App />
+        </Router>
+    </MuiThemeProvider>, document.getElementById('root'));
 serviceWorker.unregister();

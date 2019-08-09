@@ -1,0 +1,18 @@
+.statistics-page--container{
+    font-size: 36px;
+}
+.statistics-title--holder{
+    display: grid;
+    grid-template-columns: 100px 300px;
+    grid-template-rows: 1fr;
+    width: 400px;
+    margin: 50px auto;
+    padding-top: 20px;
+}
+.statistics-title--logo{
+    background-image: url('../assets/logo-no-bg.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;    
+    margin-top: -45px;
+}
