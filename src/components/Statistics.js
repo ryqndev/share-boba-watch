@@ -36,10 +36,16 @@ export class Statistics extends Component {
     }
     didNotFindUser = ( data ) => {
         let pageData = (
-            <Typography variant="body1">
-                Sorry! This person doesn't exist or has their profile set to private. If this is your profile and would like to change it, please access your user settings in your Boba Watch account. You can find more information here -
-                 <a href="https://info.boba.watch/">https://info.boba.watch/</a>
-            </Typography>
+            <div className="notice-container">
+                <Typography variant="subtitle1">
+                    This person either doesn't exist or has their profile set to private. 
+                </ Typography>
+                <br />
+                <Typography variant="body1">
+                    If this is your profile and would like to change it, please access your user settings in your Boba Watch account. You can find more information at
+                    <a href="https://info.boba.watch/"> info.boba.watch </a>
+                </Typography>
+            </div>
         );
         this.setState({
             display: pageData

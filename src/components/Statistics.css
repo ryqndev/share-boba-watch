@@ -1,12 +1,13 @@
 .statistics-page--container{
-    font-size: 36px;
+    padding-top: 10px;
 }
 .statistics-title--holder{
     display: grid;
-    grid-template-columns: 100px 300px;
-    grid-template-rows: 1fr;
-    width: 400px;
-    margin: 50px auto;
+    width: 300px;
+    grid-template-columns: 300px;
+    grid-template-rows: 70px 1fr;
+    text-align: center;
+    margin: 20px auto;
     padding-top: 20px;
 }
 .statistics-title--logo{
@@ -14,5 +15,31 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;    
-    margin-top: -45px;
+    margin-top: 0;
+}
+.notice-container{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 15px 0 15px;
+    text-align: center;
+}
+@media (min-width: 700px){
+    .statistics-page--container{
+        padding-top: 50px;
+    }    
+    .statistics-title--holder{
+        display: grid;
+        grid-template-columns: 70px 300px;
+        grid-template-rows: 1fr;
+        width: 400px;
+        margin-top: 0;
+    }
+    .statistics-title--logo{   
+        margin-top: -45px;
+    }
+    .notice-container{
+        padding: 0 50px 0 50px;
+    }
 }

@@ -69,11 +69,16 @@ const theme = createMuiTheme({
             fontSize: 48,
             margin: 0
         },
+        subtitle1: {
+            fontFamily: 'Poppins',
+            fontSize: 22,
+            fontWeight: 'bold',
+            color: '#333333',
+        },
         body1: {
             fontFamily: 'Poppins',
-            // color: '#F68080',
             color: '#FFFFFF',
-            fontSize: 18,
+            fontSize: 16
         },
     },
 });
