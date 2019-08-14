@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import backend from './firebaseCalls';
 import { Typography } from '@material-ui/core';
+import DailyHeatMap from './DailyHeatMap';
 import './Statistics.css';
 
 export class Statistics extends Component {
@@ -10,7 +11,11 @@ export class Statistics extends Component {
         sessionStorage.setItem('uid', uid);
         this.getUserData( uid );
         this.state = {
-            display: (<Typography> Loading data... </Typography>)
+            display: (
+                <div className="statistics-content--in-progress">
+                    <Typography variant="h3"> Loading data... </Typography>
+                </div>
+            )
         };
     }
     getUserData = ( uid ) => {
@@ -20,15 +25,28 @@ export class Statistics extends Component {
     foundUser = ( data ) => {
         console.log(data);
         let pageData = (
-            <Typography>
-                {data.fn}'s boba watch profile
+            <div className="statistics-content--holder">
+                <Typography variant="h2">
+                    {data.fn}'s stats
+                </Typography>
                 <br />
-                Average cost of a drink: {data.ad / 100}
+                <Typography variant="h3">
+                    ...in a nutshell
+                </Typography>
                 <br />
-                Total spent this month: {data.tc}
+                <Typography variant="subtitle1" component="p">
+                    Drink Average: <span>${data.ad / 100}</span>
+                </Typography>
+                <Typography variant="subtitle1" component="p">
+                    Monthly Total: <span>${data.tc / 100}</span>
+                </Typography>
+                <Typography variant="subtitle1" component="p">
+                    Drinks this month: <span>{data.td}</span>
+                </Typography>
                 <br />
-                # of drinks this month: {data.td}
-            </Typography>
+                <br />
+                <DailyHeatMap data={JSON.parse(data.d)} width={window.innerWidth >= 800 ? 800 : window.innerWidth}/>
+            </div>
         );
         this.setState({
             display: pageData

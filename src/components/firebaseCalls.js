@@ -16,6 +16,7 @@ let db;
  */
 let init = (userID) => {
     db = firebase.firestore();
+    db.enablePersistence();
     sessionStorage.setItem('uid', userID);
 }
 /**
