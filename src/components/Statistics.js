@@ -61,7 +61,7 @@ export class Statistics extends Component {
                 <br />
                 <Typography variant="body1">
                     If this is your profile and would like to change it, please access your user settings in your Boba Watch account. You can find more information at
-                    <a href="https://info.boba.watch/"> info.boba.watch </a>
+                    <a href="https://info.boba.watch/"> our FAQ page </a>
                 </Typography>
             </div>
         );

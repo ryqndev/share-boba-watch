@@ -3,7 +3,7 @@
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
-    overflow-y: scroll;
+    overflow-x: hidden;
 }
 p > span {
     color: rgb(156, 42, 38);

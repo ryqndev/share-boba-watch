@@ -5,6 +5,9 @@ import Statistics from './components/Statistics';
 import './App.css';
 
 class App extends Component {
+    componentDidCatch = () => {
+        window.location.reload(true); 
+    }
     render() {
         return (
             <Switch>
