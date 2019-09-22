@@ -23,7 +23,6 @@ export class Statistics extends Component {
         backend.getStats(this.foundUser, this.didNotFindUser);
     }
     foundUser = ( data ) => {
-        console.log(data);
         let pageData = (
             <div className="statistics-content--holder">
                 <Typography variant="h2">
@@ -35,7 +34,7 @@ export class Statistics extends Component {
                 </Typography>
                 <br />
                 <Typography variant="subtitle1" component="p">
-                    Drink Average: <span>${data.ad / 100}</span>
+                    Drink Average: <span>${parseInt(data.ad) / 100}</span>
                 </Typography>
                 <Typography variant="subtitle1" component="p">
                     Monthly Total: <span>${data.tc / 100}</span>
