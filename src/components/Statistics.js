@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import backend from './firebaseCalls';
 import { Typography } from '@material-ui/core';
 import DailyHeatMap from './DailyHeatMap';
+import HardFacts from './HardFacts';
 import './Statistics.css';
 
 export class Statistics extends Component {
@@ -17,6 +18,9 @@ export class Statistics extends Component {
                 </div>
             )
         };
+    }
+    money = (number) => {
+        return parseFloat((number)).toFixed(2);
     }
     getUserData = ( uid ) => {
         backend.init( uid );
@@ -34,10 +38,10 @@ export class Statistics extends Component {
                 </Typography>
                 <br />
                 <Typography variant="subtitle1" component="p">
-                    Drink Average: <span>${parseInt(data.ad) / 100}</span>
+                    Drink Average: <span>${this.money(parseInt(data.ad) / 100)}</span>
                 </Typography>
                 <Typography variant="subtitle1" component="p">
-                    Monthly Total: <span>${data.tc / 100}</span>
+                    Monthly Total: <span>${this.money(data.tc / 100)}</span>
                 </Typography>
                 <Typography variant="subtitle1" component="p">
                     Drinks this month: <span>{data.td}</span>
@@ -45,6 +49,7 @@ export class Statistics extends Component {
                 <br />
                 <br />
                 <DailyHeatMap data={JSON.parse(data.d)} width={window.innerWidth >= 800 ? 800 : window.innerWidth}/>
+                <HardFacts data={parseInt(data.ctd)}/>
             </div>
         );
         this.setState({
